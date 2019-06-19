@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { decrement, DECREMENT, increment } from "../actions";
-import { INCREMENT } from "./../actions/index";
+import { decrement, increment } from "../actions";
 
 class Counter extends Component {
   incrementIfOdd = () => {
@@ -18,19 +17,21 @@ class Counter extends Component {
     // Fill in the two button onClick methods
     // Upon clicking these buttons, the count
     // should decrement or increment accordingly
+
+    let tp = this.props;
     return (
       <p>
-        Clicked: {this.props.count} times
+        Clicked: {tp.count} times
         <button
           onClick={() => {
-            INCREMENT;
+            tp.increment(tp.count);
           }}
         >
           +
         </button>
         <button
           onClick={() => {
-            DECREMENT;
+            tp.decrement(tp.count);
           }}
         >
           -
